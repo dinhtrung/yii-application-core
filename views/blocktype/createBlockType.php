@@ -9,7 +9,7 @@ $this->renderPartial('_menuBlockType');
 ?>
 
 <h1>
-	<?php echo $this->pageTitle = Yii::t('core', 'Create') . ' ' . Yii::t('core', 'Blocktypes'); ?>
+	<?php echo $this->pageTitle = Yii::t('core', 'Create Block Type'); ?>
 </h1>
 
 <?php $this->renderPartial('_formBlockType', array('model'=>$model)); ?>
