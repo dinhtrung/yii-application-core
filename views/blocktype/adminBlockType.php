@@ -3,7 +3,7 @@ $this->breadcrumbs=array(
 	Yii::t('core', 'Manage Block Types'),
 );
 
-if(empty($this->menu)) $this->renderPartial('_menuBlockType');
+$this->renderPartial('_menuBlockType');
 ?>
 
 <h1><?php echo $this->pageTitle = Yii::t('core', 'Manage Block Types'); ?></h1>

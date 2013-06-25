@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 	Yii::t('core', 'Create'),
 );
 
-$this->renderPartial('_menuBlock');
+$this->renderPartial('_menuBlockType');
 ?>
 
 <h1>
