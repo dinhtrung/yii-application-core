@@ -72,18 +72,6 @@ class BlockController extends WebBaseController
 			$this->redirect(array('admin'));
 		} else throw new CHttpException(404, Yii::t('app', 'Page not found'));
 	}
-	
-
-	/**
-	 * Common code base for CRUD
-	 * @see CController::actions()
-	 */
-	function actions() {
-		return array(
-			'duplicate'	=>	'ext.actions.DuplicateAction',
-		);
-	}
-
 	/**
 	 * Assign a block to one or many themes available to the system
 	 */
@@ -113,7 +101,7 @@ class BlockController extends WebBaseController
 			}
 			$this->redirect(Yii::app()->getUser()->getReturnUrl());
 		}
-		$this->render('theme',array( 'model'=>$model, 'item' => $item));
+		$this->render('themeBlock',array( 'model'=>$model, 'item' => $item));
 	}
 
 	/**
@@ -122,7 +110,7 @@ class BlockController extends WebBaseController
 	 */
 	function actionPreview() {
 		$model = Blocktheme::model()->with("owner")->findAllByAttributes(array("theme" => Yii::app()->setting->get("Website", "theme")));
-		$this->render("preview", array("model" => $model), FALSE, FALSE);
+		$this->render("previewBlock", array("model" => $model), FALSE, FALSE);
 	}
 
 	/**
@@ -149,7 +137,7 @@ class BlockController extends WebBaseController
 			Yii::app()->end();
 		} else {
 			$model = Blocktheme::model()->with("owner")->findAllByAttributes(array("theme" => Yii::app()->setting->get("Website", "theme")));
-			$this->render("sort", array('model' => $model), FALSE, FALSE);
+			$this->render("sortBlock", array('model' => $model), FALSE, FALSE);
 		}
 	}
 
@@ -179,6 +167,6 @@ class BlockController extends WebBaseController
 		$component = new $component("block");
 		$component->setAttributes($model->option, FALSE);
 		$form = new CForm($config, $component);
-		$this->render('config', array('form'=>$form, 'model' => $model));
+		$this->render('configBlock', array('form'=>$form, 'model' => $model));
 	}
 }
